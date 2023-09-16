@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
@@ -36,3 +37,18 @@ Route::get('/blog',[PostController::class, 'index']);
 
 // halaman single post
 Route::get('posts/{post:slug}',[PostController::class, 'show']);
+
+route::get('/categories', function(){
+    return view('categories', [
+        'title' => 'Post Categories',
+        'categories' => Category::all()
+    ]);
+});
+
+route::get('/categories/{category:slug}', function(Category $category){
+    return view('category', [
+        'title' => $category->name,
+        'posts' => $category->posts,
+        'category' => $category->name
+    ]);
+});
