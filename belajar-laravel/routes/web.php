@@ -35,7 +35,6 @@ Route::get('/about', function () {
 
 
 Route::get('/blog',[PostController::class, 'index']);
-Route::get('/blog/{category}', [PostController::class, 'getRandomImage'])->name('blog.random');
 
 
 // halaman single post
