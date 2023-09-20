@@ -35,6 +35,8 @@ Route::get('/about', function () {
 
 
 Route::get('/blog',[PostController::class, 'index']);
+Route::get('/blog/{category}', [PostController::class, 'getRandomImage'])->name('blog.random');
+
 
 // halaman single post
 Route::get('posts/{post:slug}',[PostController::class, 'show']);
@@ -58,4 +60,5 @@ Route::get('/authors/{author:username}', function(User $author){
         'title' => "Post By Author :  $author->name",
         'posts' => $author->posts->load('category', 'author')
     ]);
+
 });
