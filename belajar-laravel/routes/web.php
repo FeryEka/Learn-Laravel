@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ Route::get('/blog',[PostController::class, 'index']);
 // halaman single post
 Route::get('posts/{post:slug}',[PostController::class, 'show']);
 
-route::get('/categories', function(){
+Route::get('/categories', function(){
     return view('categories', [
         'title' => 'Post Categories',
         'active' => 'categories',
@@ -50,9 +50,15 @@ route::get('/categories', function(){
     ]);
 });
 
-route::get('/login', [LoginController::class, 'index']);
-route::get('/register', [RegisterController::class, 'index']);
-route::post('/register', [RegisterController::class, 'store']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+
 
 // route::get('/categories/{category:slug}', function(Category $category){
 //     return view('posts', [
