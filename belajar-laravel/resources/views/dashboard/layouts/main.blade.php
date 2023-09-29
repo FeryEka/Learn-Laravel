@@ -8,10 +8,19 @@
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+        {{-- Trix Editor --}}
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+        <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
         <!-- Custom styles for this template -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="/css/dashboard.css" rel="stylesheet">
+
+        <style>
+            trix-toolbar [data-trix-button-group="file-tools"]{
+                display:none;
+            }
+        </style>
     </head>
     <body>
         <svg xmlns="http://www.w3.org/2000/svg" class="d-none">

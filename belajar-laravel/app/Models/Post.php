@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
+use App\Models\Category;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 
 class Post extends Model
 {
-    use HasFactory; 
-    use Sluggable;
+    use HasFactory, Sluggable;
 
     // protected $fillable = ['title', 'slug', 'excerpt', 'body'];
     protected $guarded = ['id'];
