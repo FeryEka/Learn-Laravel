@@ -82,7 +82,8 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        Post::destroy($post->id);
+        return redirect('/dashboard/posts')->with('success', 'Post has benn added!');
     }
 
     public function checkSlug(Request $request){
