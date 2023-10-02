@@ -7,7 +7,7 @@
             <h1 class="mb-3">{{ $post->title }}</h1>
 
             <a href="/dashboard/posts" class="btn btn-success"><i class="bi bi-arrow-left-square"></i> Back to my posts</a>
-            <a href="#" class="btn btn-warning"><i class="bi bi-pencil"></i> Edit</a>
+            <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning"><i class="bi bi-pencil"></i> Edit</a>
             <form class="d-inline" action="/dashboard/posts/{{ $post->slug }}" method="post">
                 @method('delete')
                 @csrf
