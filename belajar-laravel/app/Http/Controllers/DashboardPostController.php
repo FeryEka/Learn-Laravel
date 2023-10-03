@@ -118,8 +118,8 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        if($post->Image){
-            Storage::delete($post->Image);
+        if($post->image){
+            Storage::delete($post->image);
         }
 
         Post::destroy($post->id);
