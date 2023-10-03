@@ -13,7 +13,14 @@
                 @csrf
                 <button class="btn btn-danger border-0" onclick="return confirm('Yakin ingin dihapus?')"><i class="bi bi-trash"></i> Delete</button>
             </form>
+
+            @if($post->image)
+            <div style="max-height:350px; overflow:hidden;">
+                <img class="img-fluid mt-3" src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}">
+            </div>
+            @else
             <img class="img-fluid mt-3" src="https://source.unsplash.com/random/1200x400/?{{ $post->category->name }}" alt="{{ $post->category->name }}">
+            @endif
 
             <article class="my-3 fs-5">
                 {!! $post->body !!}
