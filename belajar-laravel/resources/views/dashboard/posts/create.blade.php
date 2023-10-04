@@ -55,7 +55,7 @@
         <label for="body" class="form-label">Body</label>
         @error('body')
         <div class="invalid-feedback">
-            <p class="text-danger">{{ $meesage }}</p>
+            <p class="text-danger">{{ $message }}</p>
         </div>
         @enderror
         <input id="body" type="hidden" name="body" value="{{ old('body') }}">
